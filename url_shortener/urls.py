@@ -7,6 +7,7 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'shortener.views.new', name='new'),
+    url(r'^url/(?P<id>\d+)$', 'shortener.views.url_detail', name='url_detail'),
     url(r'^(?P<code>\w+)$', 'shortener.views.redirect', name='redirect'),
     # url(r'^url_shortener/', include('url_shortener.foo.urls')),
 

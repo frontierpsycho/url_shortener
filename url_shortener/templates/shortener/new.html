@@ -1,4 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Welcome to the simple URL shortener.</h2>
+<h3>Please submit a URL to be shortened.</h3>
 <form action="/" method="post">{% csrf_token %}
 		{{ form.as_p }}
 		<input type="submit" value="Submit" />
 </form>
+{% endblock %}
