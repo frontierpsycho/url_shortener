@@ -19,4 +19,8 @@ def new(request):
 	}, RequestContext(request))
 
 def redirect(request, code):
-	return HttpResponse(code)
+	try:
+		url = URLAssociation.get_from_code(code).actual_url
+		return HttpResponseRedirect(url)
+	except URLAssociation.DoesNotExist:
+		return HttpResponse("URL not registered")
